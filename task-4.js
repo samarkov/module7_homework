@@ -32,7 +32,7 @@ DomesticAppliance.prototype.getWatt = function (amperage) {
     console.log(`${this.name}'s consuming power is ${this.voltage * amperage} watt`);
 }
 
-DomesticAppliance.prototype.turnOn = function() {
+DomesticAppliance.prototype.turnOn = function () {
     console.log(`${this.name} is turned on`);
 }
 
@@ -56,8 +56,8 @@ Tv.prototype.switchProgram = function () {
 // создаем экземпляр класса электроприборы - чайник
 const kettle = new DomesticAppliance('Kettle'); //чайник с потреблением 10А
 
-kettle.getWatt(10); 
-kettle.unPlug(); 
+kettle.getWatt(10);
+kettle.unPlug();
 kettle.turnOn();
 
 // создаем экземпляр класса электроприборы - поусдомойка
@@ -68,7 +68,7 @@ dishwasher.plugIn();
 dishwasher.turnOn();
 
 //создаем 1 экземпляр класса телевизоры
-const bedRoomTv = new Tv('Bedroom\'s TV', 'bedroom'); 
+const bedRoomTv = new Tv('Bedroom\'s TV', 'bedroom');
 
 bedRoomTv.plugIn();
 bedRoomTv.getWatt(1);
@@ -76,7 +76,7 @@ bedRoomTv.switchProgram();//метод только у класса ТВ
 bedRoomTv.turnOn(); // вместо метода класса электроприборы используется метод класса ТВ
 
 //создаем 2-ой экземпляр класса телевизоры
-const livingRoomTv = new Tv('Living room\'s TV', 'living room');  
+const livingRoomTv = new Tv('Living room\'s TV', 'living room');
 
 livingRoomTv.plugIn();
 livingRoomTv.getWatt(2);
