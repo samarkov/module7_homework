@@ -30,14 +30,22 @@ DomesticAppliance.prototype.getWatt = function (amperage) {
     console.log(`${this.name}'s consuming power is ${this.voltage * amperage} watt`);
 }
 
+DomesticAppliance.prototype.turnOn = function() {
+    console.log(`${this.name} is turned on`);
+}
+
 function Tv(name, place) {
     this.place = place;
     this.name = name;
+    // override метода
+    this.turnOn = function () {
+        console.log('TV is turned on, the screen is blue');
+    }
 }
 
 // Класс ТВ наследник класса бытовой прибор
 Tv.prototype = new DomesticAppliance();
-
+// метод для всех наследников TV
 Tv.prototype.switchProgram = function () {
     console.log('Channel is switched');
 }
@@ -46,20 +54,24 @@ Tv.prototype.switchProgram = function () {
 const kettle = new DomesticAppliance('Kettle'); //чайник с потреблением 10А
 kettle.getWatt(10);
 kettle.unPlug();
+kettle.turnOn();
 
 //управляем посудомойкой
 const dishwasher = new DomesticAppliance('Dishwasher'); //посудомойка с потреблением 6А
 dishwasher.getWatt(6);
 dishwasher.plugIn();
+dishwasher.turnOn();
 
 //TV в спальне
 const bedRoomTv = new Tv('Bedroom\'s TV', 'bedroom'); 
 bedRoomTv.plugIn();
 bedRoomTv.getWatt(1);
 bedRoomTv.switchProgram();//метод только у класса ТВ
+bedRoomTv.turnOn();
 
 //TV в гостинной
 const livingRoomTv = new Tv('Living room\'s TV', 'living room');  
 livingRoomTv.plugIn();
 livingRoomTv.getWatt(2);
 livingRoomTv.switchProgram();//метод только у класса ТВ
+livingRoomTv.turnOn();
